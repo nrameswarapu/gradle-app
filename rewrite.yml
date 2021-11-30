@@ -1,0 +1,33 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.naga.changePackage
+displayName: Rename package
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: com.naga.rewrite.pkg.test
+      newPackageName: com.naga.rewrite.pkg.change
+      recursive: true
+      
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.naga.sayHello
+recipeList:
+  - org.openrewrite.samples.SayHelloRecipe:
+      fullyQualifiedName: com.naga.rewrite.Customer
+      
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.naga.updateCustomerInfo
+displayName: add params and body to method
+recipeList:
+  - com.naga.rewrite.ExpandCustomerRecipe:
+      fullyQualifiedClassName: com.naga.rewrite.Customer
+      
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.naga.findReplaceText
+displayName: find a text and replace
+recipeList:
+  - org.openrewrite.samples.FindReplaceText:
+      findText: hello
+      replaceText: hello world
